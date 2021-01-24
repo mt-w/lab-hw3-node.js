@@ -15,7 +15,7 @@ if (fs.existsSync('users.json')) {
 
 app.use((request, response, next) => {
   if(request.method === 'GET'){
-    console.log("You are using wrong method!");
+    response.end("You are using wrong method!");
   }
   console.log("<<<",request.body);
   next();
@@ -54,6 +54,7 @@ app.use('/', (request, response, next) => {
     response.send('Sorry, i can\'t tell you nothing!');
   } else {
     response.send('The Owls Are Not What They Seem');
+    next();
   }  
 });
 
